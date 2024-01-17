@@ -61,7 +61,7 @@ body {
     border: 1px solid var(--colour-secondary);
     transition: all 0.3s;
     vertical-align: middle;
-    margin: 0px 0px -5px 0px;
+    margin: 0px 0px -15px 0px;
     padding: 10px;
 }
 
@@ -93,11 +93,26 @@ body {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--colour-primary);
-    margin-left: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 1.4rem;
+    margin-left: 0.5rem;
+    margin-top: -4rem;
+    margin-bottom: 6rem;
     display: block;
     transition: all 0.3s;
+}
+
+.form_text {
+    display: block;
+    margin-top: -1.3rem;
+    margin-left: 0.5rem;
+}
+
+.text_muted {
+    color: #999!important;
+}
+
+small {
+    font-size: 80%;
+    font-weight: 400;
 }
 
 .btn, .btn:link, .btn:visited {
@@ -162,5 +177,5 @@ body {
 
 .send .btn {
     border-radius: 0px;
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
