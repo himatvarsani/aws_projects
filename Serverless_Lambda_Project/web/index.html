@@ -13,6 +13,10 @@
     <body>
         <div class="section_book">
             <h2 class="heading_h1">LANDING ZONE DETAILS</h2>
+            <small id="emailHelp" class="form_text text_muted">
+                * All field is <b>REQUIRED</b> to complete
+            </small>
+            <br/><br/>
             <form
                 action=""
                 method="POST"
@@ -20,15 +24,156 @@
                 name="contact_form"
             >
                 <input
-                    type="text"
+                    type="email"
                     class="form_input"
                     placeholder="Email Address"
                     id="email"
                     name="email"
+                    required
                 />
                 <label for="email" class="form_label">Email Address</label>
                 <small id="emailHelp" class="form_text text_muted">
                     We'll never share your email with anyone else.
+                </small>
+                <br/><br/>
+
+                <input
+                    type="text"
+                    class="form_input"
+                    placeholder="Company Name"
+                    id="customername"
+                    name="customername"
+                    required pattern="^[a-z0-9-]*$"
+                />
+                <label for="name" class="form_label">Company Name</label>
+                <small id="emailHelp" class="form_text text_muted">
+                    Only small letters, numbers and hyphen allowed (no spaces)
+                </small>
+                <br/><br/>
+                
+                <input
+                    type="text"
+                    class="form_input"
+                    placeholder="Shared Service Account"
+                    id="accountnumber"
+                    name="accountnumber"
+                    required pattern="^[0-9]{12}$"
+                />
+                <label for="accountnumber" class="form_label">Shared Service Account</label>
+                <small id="emailHelp" class="form_text text_muted">
+                    Enter Shared Services 12-digit AWS Account Number
+                </small>
+                <br/><br/>
+                
+                <input
+                    type="text"
+                    class="form_input"
+                    placeholder="External ID"
+                    id="ext_id"
+                    name="ext_id"
+                    required
+                />
+                <label for="ext_id" class="form_label">External ID</label>
+                <small id="emailHelp" class="form_text text_muted">
+                    Enter External ID
+                </small>
+                <br/><br/>
+                
+                <input
+                    type="text"
+                    class="form_input"
+                    placeholder="CIDR"
+                    id="cidr"
+                    name="cidr"
+                    required pattern="^(([0-9]){1,3}\.){3}[0-9]{1,3}\/[1-2][0-8]$"
+                />
+                <label for="cidr" class="form_label">CIDR</label>
+                <small id="emailHelp" class="form_text text_muted">
+                    Enter VPC CIDR. e.g. 10.0.0.0/16
+                </small>
+                <br/><br/>
+                
+                <input
+                    type="text"
+                    class="form_input"
+                    placeholder="Whitelist CIDR"
+                    id="whitelist"
+                    name="whitelist"
+                    required pattern="^((([0-9]){1,3}\.){3}[0-9]{1,3}\/([0-9],|[1-2][0-8],)|(([0-9]){1,3}\.){3}[0-9]{1,3}\/([0-9]|[1-2][0-8])){1,}$"
+                />
+                <label for="whitelist" class="form_label">Whitelist CIDR</label>
+                <small id="emailHelp" class="form_text text_muted">
+                    If multiple CIDRs, separate them by commas (no spaces allowed) e.g. 10.0.0.0/8,10.0.0.0/9,192.10.8.0/16
+                </small>
+                <br/><br/>
+                
+                <input
+                    type="text"
+                    class="form_input"
+                    placeholder="VPC Region"
+                    id="region"
+                    name="region"
+                    required pattern="^(us|eu|ap|ca|me|sa)-[a-z]*-[1-3]{1}$"
+                />
+                <label for="region" class="form_label">VPC Region</label>
+                <small id="emailHelp" class="form_text text_muted">
+                    Only small letters and hyphen allowed e.g. us-east-1
+                </small>
+                <br/><br/>
+                
+                <input
+                    type="text"
+                    class="form_input"
+                    placeholder="VPC Name"
+                    id="vpcname"
+                    name="vpcname"
+                    required
+                />
+                <label for="vpcname" class="form_label">VPC Name</label>
+                <small id="emailHelp" class="form_text text_muted">
+                    Enter VPC Name
+                </small>
+                <br/><br/>
+                
+                <input
+                    type="text"
+                    class="form_input"
+                    placeholder="Environment"
+                    id="env"
+                    name="env"
+                    required pattern="^[a-z0-9_-]*$"
+                />
+                <label for="env" class="form_label">Environment</label>
+                <small id="emailHelp" class="form_text text_muted">
+                    Eg dev, prod. Only a-z0-9_- allowed
+                </small>
+                <br/><br/>
+                
+                <input
+                    type="text"
+                    class="form_input"
+                    placeholder="Customer Gateway IP"
+                    id="cgwip"
+                    name="cgwip"
+                    required pattern="^(([0-9]){1,3}\.){3}[0-9]{1,3}$"
+                />
+                <label for="cgwip" class="form_label">Customer Gateway IP</label>
+                <small id="emailHelp" class="form_text text_muted">
+                    Enter IP address (not cidr)
+                </small>
+                <br/><br/>
+                
+                <input
+                    type="text"
+                    class="form_input"
+                    placeholder="AFT Account"
+                    id="aftacct"
+                    name="aftacct"
+                    required pattern="^[0-9]{12}$"
+                />
+                <label for="aftacct" class="form_label">AFT Account</label>
+                <small id="emailHelp" class="form_text text_muted">
+                    Enter 12-digit AFT AWS Account Number
                 </small>
                 <div class="send">
                     <button type="submit" class="btn btn--blue" name="submit">
@@ -38,6 +183,4 @@
             </form>
         </div>
     </body>
-
-
 </html>
