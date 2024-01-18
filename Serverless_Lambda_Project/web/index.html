@@ -182,5 +182,50 @@
                 </div>
             </form>
         </div>
+
+        <!--Form handling submission asynchronously using XMLHttpRequest-->
+        <script>
+            (() => {
+                //Form and URL Configuration - The <Form> element in the document and en element with the ID 'response'.
+                const form = document.querySelector('form');
+                const submitResponse = document.querySelector('#response');
+                //The variable formURL contains the URL where the form data will be submitted
+                const formURL = 'API GATEWAY INVOKE URL ENDING IN /FORM';
+            
+                // Form Submission Handling -  The forms onsubmit event prevents the default form submission behaviour
+                form.onsubmit = e => {
+                    e.preventDefault();
+                    
+                    /* Data Collection - It collects the data by iterating over form inputs and creating a JavaScript object
+                    'data' with input IDs as keys and input values as values */
+                    let data = {};
+                    Array.from(form).map(input => (data[input.id] = input.value));
+                    console.log('Sending: ', JSON.stringify(data));
+                    submitResponse.innerHTML = 'Sending...'
+        
+                    /* AJAX Request Configuration - Creates an XMLHttpRequest object, sets the request method (GET/POST) based on 
+                    the form's method */
+                    var xhr = new XMLHttpRequest();
+                    xhr.open(form.method, formURL, true);
+                    xhr.setRequestHeader('Accept', 'application/json; charset=utf-8');
+                    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        
+                    // Data Submission - It sends the collected form data as a JSON string in the request body
+                    xhr.send(JSON.stringify(data));
+                    
+                    /* Handling Response - If the status is 200 (OK), it resets and desplay a success message. Otherwise, it 
+                    logs an error to the console */
+                    xhr.onloadend = response => {
+                    if (response.target.status === 200) {
+                        form.reset();
+                        submitResponse.innerHTML = 'Form submitted. Success!';
+                    } else {
+                        submitResponse.innerHTML = 'Form submission failed!';
+                        console.error(JSON.parse(response));
+                    }
+                    };    
+                };
+            })();
+        </script>
     </body>
 </html>
